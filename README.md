@@ -1,4 +1,4 @@
-# BestBuy Store
+# BestBuy Store (On Steroids)
 Welcome to the BestBuy Store application.
 
 This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
@@ -8,37 +8,12 @@ This sample demo app consists of a group of containerized microservices that can
 2. Develop and deploy a full-stack solution for Best Buy using Kubernetes.
 3. Enable AI-powered product descriptions and image generation using GPT-4 and DALL-E. 
 
-## Understanding Key Kubernetes Resources: StatefulSets, Deployments, Secrets, and ConfigMaps
-In this section, you will learn about essential Kubernetes resources used to deploy and manage applications in a cluster.
+## Project Requirements
+### 1. **Application Architecture**
+Design of the application based on the provided diagram of BestBuy Store(On Steroids)
+![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
 
-### **Deployments**
-A **Deployment** is a Kubernetes resource that ensures a specified number of pod replicas are running. It provides mechanisms for rolling updates, scaling, and version management.
-
-#### **Key Features of Deployments**:
-1. **Replica Management**:
-Ensures a defined number of pod replicas are running at all times.
-2. **Rolling Updates**:
-Updates pods incrementally to ensure minimal downtime.
-3. **Self-healing**:
-Automatically replaces failed pods.
-#### **Use Cases**:
-- Stateless applications like web servers or APIs.
-- Backend microservices.
-
-### **StatefulSets**
-A **StatefulSet** is a Kubernetes resource used to manage stateful applications. Unlike Deployments, StatefulSets are designed for applications that require unique network identifiers, stable storage, and consistent state across pod restarts.
-
-#### **Key Features of StatefulSets**:
-1. **Stable Pod Names**:
-   Pods in a StatefulSet have predictable names, such as `pod-name-0`, `pod-name-1`.
-2. **Persistent Storage**:
-   Each pod can be associated with its own Persistent Volume, ensuring data is retained across restarts.
-3. **Ordered Scaling and Updates**:
-   Pods are created, updated, and deleted in a controlled order.
-
-#### **Use Cases**:
-- Databases like MongoDB, MySQL, or PostgreSQL.
-- Message queues like RabbitMQ.
+### 2. **Microservices Development**
 
 ## Step 1: Clone the BestBuyApplication Repository
 
