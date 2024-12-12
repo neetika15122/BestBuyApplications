@@ -3,12 +3,10 @@ Welcome to the BestBuy Store application.
 
 This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
 
-## Lab Objectives
-1. Deploy the BestBuy Store application to a Kubernetes cluster.
-2. Configure and manage essential Kubernetes resources like StatefulSets, Secrets, ConfigMaps, and Deployments.
-3. Test the application's features, including backend services, frontend interfaces, and AI integration.
-4. Scale services and monitor application health.
-5. Simulate customer and worker tasks using Virtual Customer and Virtual Worker services. 
+## Assignment Objectives
+1. Implement a cloud-native application using microservices architecture.
+2. Develop and deploy a full-stack solution for Best Buy using Kubernetes.
+3. Enable AI-powered product descriptions and image generation using GPT-4 and DALL-E. 
 
 ## Understanding Key Kubernetes Resources: StatefulSets, Deployments, Secrets, and ConfigMaps
 In this section, you will learn about essential Kubernetes resources used to deploy and manage applications in a cluster.
