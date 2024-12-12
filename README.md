@@ -5,45 +5,10 @@ This sample demo app consists of a group of containerized microservices that can
 
 ## Assignment Objectives
 1. Implement a cloud-native application using microservices architecture.
-2. Configure and manage essential Kubernetes resources like StatefulSets, Secrets, ConfigMaps, and Deployments.
-3. Test the application's features, including backend services, frontend interfaces, and AI integration.
-4. Scale services and monitor application health.
-5. Simulate customer and worker tasks using Virtual Customer and Virtual Worker services. 
-
-## Understanding Key Kubernetes Resources: StatefulSets, Deployments, Secrets, and ConfigMaps
-In this section, you will learn about essential Kubernetes resources used to deploy and manage applications in a cluster.
-
-### **Deployments**
-A **Deployment** is a Kubernetes resource that ensures a specified number of pod replicas are running. It provides mechanisms for rolling updates, scaling, and version management.
-
-#### **Key Features of Deployments**:
-1. **Replica Management**:
-Ensures a defined number of pod replicas are running at all times.
-2. **Rolling Updates**:
-Updates pods incrementally to ensure minimal downtime.
-3. **Self-healing**:
-Automatically replaces failed pods.
-#### **Use Cases**:
-- Stateless applications like web servers or APIs.
-- Backend microservices.
-
-### **StatefulSets**
-A **StatefulSet** is a Kubernetes resource used to manage stateful applications. Unlike Deployments, StatefulSets are designed for applications that require unique network identifiers, stable storage, and consistent state across pod restarts.
-
-#### **Key Features of StatefulSets**:
-1. **Stable Pod Names**:
-   Pods in a StatefulSet have predictable names, such as `pod-name-0`, `pod-name-1`.
-2. **Persistent Storage**:
-   Each pod can be associated with its own Persistent Volume, ensuring data is retained across restarts.
-3. **Ordered Scaling and Updates**:
-   Pods are created, updated, and deleted in a controlled order.
-
-#### **Use Cases**:
-- Databases like MongoDB, MySQL, or PostgreSQL.
-- Message queues like RabbitMQ.
+2. Develop and deploy a full-stack solution for Best Buy using Kubernetes.
+3. Enable AI-powered product descriptions and image generation using GPT-4 and DALL-E.
 
 ## Step 1: Clone the BestBuyApplication Repository
-
 To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyApplications.git) repository, which contains all necessary deployment files.
 
  **Review the Deployment Files**:
@@ -68,22 +33,7 @@ The application has the following services:
 
 ![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
 
-## Step 2: Install `kubectl`
-1. **What is `kubectl`?**
-   - `kubectl` is a command-line tool that allows you to communicate with and manage Kubernetes clusters. You will use `kubectl` to deploy applications, configure clusters, and inspect resources.
-
-2. **Installing `kubectl`:**
-   - Follow the official installation guide to install `kubectl` on your system. The guide provides detailed instructions for various operating systems.
-   - [kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/)
-
-3. **Verify `kubectl` Installation:**
-   - After installing, confirm that `kubectl` is properly set up by running:
-     ```bash
-     kubectl version --client
-     ```
-   - You should see the client version information displayed, confirming a successful installation.
-
-## Step 3: Create an Azure Kubernetes Cluster (AKS)
+## Step 2: Create an Azure Kubernetes Cluster (AKS)
 1. **Log in to Azure Portal:**
    - Go to [https://portal.azure.com](https://portal.azure.com) and log in with your Azure account.
 
@@ -126,7 +76,7 @@ The application has the following services:
         - Click `add`
    - Click **Review + Create**, and then **Create**. The deployment will take a few minutes.
 
-## Step 4: Connect to AKS Cluster
+## Step 3: Connect to AKS Cluster
    - Once the AKS cluster is deployed, navigate to the cluster in the Azure Portal.
    - In the overview page, click on **Connect**. 
    - Select **Azure CLI** tap. You will need Azure CLI. If you don't have it: [**Install Azure CLI**](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -143,11 +93,7 @@ The application has the following services:
      ```
      az aks get-credentials --resource-group AlgonquinPetStoreRG --name AlgonquinPetStoreCluster
      ```
-      **Understanding the Command:**
-      - The command `az aks get-credentials` pulls the necessary configuration files to enable `kubectl` to access your AKS cluster. Here’s a breakdown:
-     - `--resource-group` specifies the resource group where your AKS cluster resides.
-     - `--name` specifies the name of your AKS cluster.
-     - `--overwrite-existing` can be used to overwrite any existing Kubernetes configuration files for the same cluster. This is useful if you’ve connected to the cluster before or if multiple configurations exist for it.
+
    - Verify Cluster Access:
       - Test your connection to the AKS cluster by listing all nodes:
         ```
@@ -155,7 +101,7 @@ The application has the following services:
         ```
         You should see details of the nodes in your AKS cluster if the connection is successful.
 
-## Step 5: Set Up the AI Backing Services
+## Step 4: Set Up the AI Backing Services
 To enable AI-generated product descriptions and image generation features, you will deploy the required **Azure OpenAI Services** for GPT-4 (text generation) and DALL-E 3 (image generation). This step is essential to configure the **AI Service** component in the Algonquin Pet Store application.
 
 ### Task 1: Create an Azure OpenAI Service Instance
@@ -232,6 +178,36 @@ To enable AI-generated product descriptions and image generation features, you w
      value: "https://<your-openai-resource-name>.openai.azure.com/"
    - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
      value: "dalle-3-deployment"
+
+## Step 5: Build, Tag and Push the Docker Images
+### **Task 1: Fork the Repositories**
+ | Service            | Description                                | Github Repo                                                                 |
+   |--------------------|--------------------------------------------|-----------------------------------------------------------------------------|
+   | `store-front`      | Web app for customers to place orders      | [store-front-Bestbuy](https://github.com/ramymohamed10/store-front-L8)           |
+   | `store-admin`      | Web app for store employees                | [store-admin-Bestbuy](https://github.com/ramymohamed10/store-admin-L8)           |
+   | `order-service`    | Handles order placement                    | [order-service-Bestbuy](https://github.com/ramymohamed10/order-service-L8)       |
+   | `product-service`  | Handles CRUD operations on products        | [product-service-Bestbuy](https://github.com/ramymohamed10/product-service-L8)   |
+   | `makeline-service` | Processes and completes orders             | [makeline-service-Bestbuy](https://github.com/ramymohamed10/makeline-service-L8) |
+   | `ai-service`       | AI-based product descriptions and images   | [ai-service-Bestbuy](https://github.com/ramymohamed10/ai-service-L8)             |
+   | `virtual-customer` | Simulates customer order creation          | [virtual-customer-Bestbuy](https://github.com/ramymohamed10/virtual-customer-L8) |
+   | `virtual-worker`   | Simulates order completion                 | [virtual-worker-Bestbuy](https://github.com/ramymohamed10/virtual-worker-L8)     |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Step 6: Deploy the ConfigMaps and Secrets
 - Deploy the ConfigMap for RabbitMQ Plugins:
