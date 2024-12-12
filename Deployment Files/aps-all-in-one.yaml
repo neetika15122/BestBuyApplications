@@ -136,7 +136,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: order-service
-          image: pras0044/order-service-bestbuy:latest # Custom image for order service
+          image: ramymohamed/order-service-l8:latest # Custom image for order service
           ports:
             - containerPort: 3000 # Order service listens on this port
           env: # Environment variables for configuration
@@ -510,7 +510,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: ai-service
-          image: pras0044/ai-service-bestbuy:latest
+          image: ramymohamed/ai-service-l8:latest
           ports:
             - containerPort: 5001
           env:
