@@ -194,18 +194,44 @@ To enable AI-generated product descriptions and image generation features, you w
 
 ### **Task 2: Build the Docker Images for each repository **
 
+```bash 
+docker build -t ai-service-bestbuy:latest .  
+docker build -t makeline-service-bestbuy:latest . 
+docker build -t product-service-bestbuy:latest . 
+docker build -t store-front-bestbuy:latest . 
+docker build -t virtual-worker-bestbuy:latest . 
+docker build -t order-service-bestbuy:latest .  
+docker build -t store-admin-bestbuy:latest .  
+docker build -t virtual-customer-bestbuy:latest . 
+```
+
+### **Task 3: Tag the Docker Images for each repository **
+
 ```bash
-docker build -t ai-service-bestbuy:latest .
-docker build -t makeline-service-bestbuy:latest .
-docker build -t product-service-bestbuy:latest .
-docker build -t store-front-bestbuy:latest .
-docker build -t virtual-worker-bestbuy:latest .
-docker build -t order-service-bestbuy:latest .
-docker build -t store-admin-bestbuy:latest .
-docker build -t virtual-customer-bestbuy:latest .
+docker tag ai-service-bestbuy:latest username/ai-service-bestbuy:latest 
+docker tag makeline-service-bestbuy:latest username/makeline-service-bestbuy:latest 
+docker tag product-service-bestbuy:latest username/product-service-bestbuy:latest 
+docker tag store-front-bestbuy:latest username/store-front-bestbuy:latest
+docker tag virtual-worker-bestbuy:latest username/virtual-worker-bestbuy:latest 
+docker tag order-service-bestbuy:latest username/order-service-bestbuy:latest 
+docker tag store-admin-bestbuy:latest username/store-admin-bestbuy:latest 
+docker tag virtual-customer-bestbuy:latest username/virtual-customer-bestbuy:latest 
+```
 
+### **Task 4: Push the Docker Images for each repository **
 
-## Step 6: Deploy the ConfigMaps and Secrets
+```bash
+docker push username/ai-service-bestbuy:latest 
+docker push username/makeline-service-bestbuy:latest 
+docker push username/product-service-bestbuy:latest 
+docker push username/store-front-bestbuy:latest
+docker push username/virtual-worker-bestbuy:latest 
+docker push username/order-service-bestbuy:latest 
+docker push username/store-admin-bestbuy:latest 
+docker push username/virtual-customer-bestbuy:latest 
+```
+
+### Step 6: Deploy the ConfigMaps and Secrets
 - Deploy the ConfigMap for RabbitMQ Plugins:
    ```bash
    kubectl apply -f config-maps.yaml
