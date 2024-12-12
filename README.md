@@ -91,7 +91,7 @@ The application has the following services:
 
    - Copy the command shown in the portal for configuring `kubectl` (it will look something like this):
      ```
-     az aks get-credentials --resource-group AlgonquinPetStoreRG --name AlgonquinPetStoreCluster
+     az aks get-credentials --resource-group BestBuyResource --name BestBuyCluster 
      ```
 
    - Verify Cluster Access:
@@ -346,3 +346,5 @@ Explanation: The db.orders.find() command fetches and displays all documents (re
 - Connect to the MongoDB shell in the Kubernetes pod.
 - Explore the databases and collections used by the application.
 - Query the orders collection to examine the data structure and stored records.
+
+## Step 10: Test the Application
