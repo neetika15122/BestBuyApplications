@@ -189,6 +189,8 @@ To enable AI-generated product descriptions and image generation features, you w
    - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
      value: "dalle-3-deployment"
 
+![alt text](image-7.png)
+
 ## Step 5: Build, Tag and Push the Docker Images
 ### Docker Images for each service
 | Services           | Docker Link                                                                                   |
