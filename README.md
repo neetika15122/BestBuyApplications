@@ -76,6 +76,8 @@ The application has the following services:
         - Click `add`
    - Click **Review + Create**, and then **Create**. The deployment will take a few minutes.
 
+![alt text](image.png)
+
 ## Step 3: Connect to AKS Cluster
    - Once the AKS cluster is deployed, navigate to the cluster in the Azure Portal.
    - In the overview page, click on **Connect**. 
@@ -100,6 +102,8 @@ The application has the following services:
         kubectl get nodes
         ```
         You should see details of the nodes in your AKS cluster if the connection is successful.
+
+![alt text](image-1.png)
 
 ## Step 4: Set Up the AI Backing Services
 To enable AI-generated product descriptions and image generation features, you will deploy the required **Azure OpenAI Services** for GPT-4 (text generation) and DALL-E 3 (image generation). This step is essential to configure the **AI Service** component in the Algonquin Pet Store application.
@@ -348,3 +352,4 @@ Explanation: The db.orders.find() command fetches and displays all documents (re
 - Query the orders collection to examine the data structure and stored records.
 
 ## Step 10: Test the Application
+
