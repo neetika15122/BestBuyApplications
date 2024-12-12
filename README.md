@@ -152,7 +152,7 @@ To enable AI-generated product descriptions and image generation features, you w
 ![alt text](image-3.png)
 ![alt text](image-4.png)
     - Endpoint URL
-![alt text](image-17.png)
+![alt text](image-18.png)
 ### Task 3: Retrieve and Configure API Keys
 
 1. **Get API Keys**:
