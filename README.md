@@ -191,16 +191,17 @@ To enable AI-generated product descriptions and image generation features, you w
 
 ## Step 5: Build, Tag and Push the Docker Images
 ### **Task 1: Fork the Repositories **
- | Service            | Description                                | Github Repo                                                                 |
-   |--------------------|--------------------------------------------|-----------------------------------------------------------------------------|
-   | `store-front`      | Web app for customers to place orders      | [store-front-Bestbuy](https://hub.docker.com/layers/pras0044/store-front-bestbuy/latest/images/sha256:e48825c1a356110396304c3bdffd274efaab6064ca9621824ee5498146034548?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)           |
-   | `store-admin`      | Web app for store employees                | [store-admin-Bestbuy](https://hub.docker.com/layers/pras0044/store-admin-bestbuy/latest/images/sha256:8107a1539d0b5fce8efb15cc0234fa0f2651e510332f4edba237461a0fc7b163?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)           |
-   | `order-service`    | Handles order placement                    | [order-service-Bestbuy](https://hub.docker.com/layers/pras0044/order-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)       |
-   | `product-service`  | Handles CRUD operations on products        | [product-service-Bestbuy](https://hub.docker.com/layers/pras0044/product-service/latest/images/sha256:38ddcd3b7fe2a99ee292c11528edad058f5967edc41c8561ed9ac33b3a639819?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)   |
-   | `makeline-service` | Processes and completes orders             | [makeline-service-Bestbuy](https://hub.docker.com/layers/pras0044/makeline-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
-   | `ai-service`       | AI-based product descriptions and images   | [ai-service-Bestbuy](https://hub.docker.com/layers/pras0044/ai-service-bestbuy/latest/images/sha256:d68f27550d370a62e45e35005ba6410656f7999c60e67000ae4b02fde13c9c10?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)             |
-   | `virtual-customer` | Simulates customer order creation          | [virtual-customer-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-customer-bestbuy/latest/images/sha256:07f2efbe01975da29ba81fe985b4d8333f12f277af447634b935a283fe38855e?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
-   | `virtual-worker`   | Simulates order completion                 | [virtual-worker-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-worker-bestbuy/latest/images/sha256:b64ac72d57efb194e497ec4bbce9e894030a3b21fc6bc0204a87707482036182?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)     |
+| Service            | Docker Link                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------|
+| `store-front`      | [store-front-Bestbuy](https://hub.docker.com/layers/pras0044/store-front-bestbuy/latest/images/sha256:e48825c1a356110396304c3bdffd274efaab6064ca9621824ee5498146034548?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `store-admin`      | [store-admin-Bestbuy](https://hub.docker.com/layers/pras0044/store-admin-bestbuy/latest/images/sha256:8107a1539d0b5fce8efb15cc0234fa0f2651e510332f4edba237461a0fc7b163?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `order-service`    | [order-service-Bestbuy](https://hub.docker.com/layers/pras0044/order-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `product-service`  | [product-service-Bestbuy](https://hub.docker.com/layers/pras0044/product-service/latest/images/sha256:38ddcd3b7fe2a99ee292c11528edad058f5967edc41c8561ed9ac33b3a639819?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `makeline-service` | [makeline-service-Bestbuy](https://hub.docker.com/layers/pras0044/makeline-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `ai-service`       | [ai-service-Bestbuy](https://hub.docker.com/layers/pras0044/ai-service-bestbuy/latest/images/sha256:d68f27550d370a62e45e35005ba6410656f7999c60e67000ae4b02fde13c9c10?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `virtual-customer` | [virtual-customer-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-customer-bestbuy/latest/images/sha256:07f2efbe01975da29ba81fe985b4d8333f12f277af447634b935a283fe38855e?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+| `virtual-worker`   | [virtual-worker-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-worker-bestbuy/latest/images/sha256:b64ac72d57efb194e497ec4bbce9e894030a3b21fc6bc0204a87707482036182?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+
 
 ### **Task 2: Build the Docker Images for each repository **
 
