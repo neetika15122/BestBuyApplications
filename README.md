@@ -104,6 +104,7 @@ The application has the following services:
         You should see details of the nodes in your AKS cluster if the connection is successful.
 
 ![alt text](image-1.png)
+![alt text](image-5.png)
 
 ## Step 4: Set Up the AI Backing Services
 To enable AI-generated product descriptions and image generation features, you will deploy the required **Azure OpenAI Services** for GPT-4 (text generation) and DALL-E 3 (image generation). This step is essential to configure the **AI Service** component in the Algonquin Pet Store application.
@@ -160,6 +161,8 @@ To enable AI-generated product descriptions and image generation features, you w
      echo -n "<your-api-key>" | base64
      ```
    - Replace `<your-api-key>` with your actual API key.
+
+![alt text](image-6.png)
 
 ### Task 4: Update AI Service Deployment Configuration in the `Deployment Files` folder.
 1. **Modify Secretes YAML**:
