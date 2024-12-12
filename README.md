@@ -3,11 +3,52 @@ Welcome to the BestBuy Store application.
 
 This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
 
+## Lab Objectives
+1. Deploy the BestBuy Store application to a Kubernetes cluster.
+2. Configure and manage essential Kubernetes resources like StatefulSets, Secrets, ConfigMaps, and Deployments.
+3. Test the application's features, including backend services, frontend interfaces, and AI integration.
+4. Scale services and monitor application health.
+5. Simulate customer and worker tasks using Virtual Customer and Virtual Worker services. 
 
-> [!NOTE]
-> This is not meant to be an example of perfect code to be used in production, but more about showing a realistic application running in kubernetes. 
+## Understanding Key Kubernetes Resources: StatefulSets, Deployments, Secrets, and ConfigMaps
+In this section, you will learn about essential Kubernetes resources used to deploy and manage applications in a cluster.
 
-## Architecture
+### **Deployments**
+A **Deployment** is a Kubernetes resource that ensures a specified number of pod replicas are running. It provides mechanisms for rolling updates, scaling, and version management.
+
+#### **Key Features of Deployments**:
+1. **Replica Management**:
+Ensures a defined number of pod replicas are running at all times.
+2. **Rolling Updates**:
+Updates pods incrementally to ensure minimal downtime.
+3. **Self-healing**:
+Automatically replaces failed pods.
+#### **Use Cases**:
+- Stateless applications like web servers or APIs.
+- Backend microservices.
+
+### **StatefulSets**
+A **StatefulSet** is a Kubernetes resource used to manage stateful applications. Unlike Deployments, StatefulSets are designed for applications that require unique network identifiers, stable storage, and consistent state across pod restarts.
+
+#### **Key Features of StatefulSets**:
+1. **Stable Pod Names**:
+   Pods in a StatefulSet have predictable names, such as `pod-name-0`, `pod-name-1`.
+2. **Persistent Storage**:
+   Each pod can be associated with its own Persistent Volume, ensuring data is retained across restarts.
+3. **Ordered Scaling and Updates**:
+   Pods are created, updated, and deleted in a controlled order.
+
+#### **Use Cases**:
+- Databases like MongoDB, MySQL, or PostgreSQL.
+- Message queues like RabbitMQ.
+
+## Step 1: Clone the BestBuyApplication Repository
+
+To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyApplications.git) repository, which contains all necessary deployment files.
+
+ **Review the Deployment Files**:
+   - Navigate to the `Deployment Files` folder
+   - This folder contains YAML files for deploying all necessary Kubernetes resources, including services, deployments, StatefulSets, ConfigMaps, and Secrets.
 
 The application has the following services: 
 
