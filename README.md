@@ -14,16 +14,12 @@ Design of the application based on the provided diagram of BestBuy Store(On Ster
 ![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
 
 ### 2. **Microservices Development**
-
-## Step 1: Clone the BestBuyApplication Repository
-
+The application has the following services: 
 To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyApplications.git) repository, which contains all necessary deployment files.
 
  **Review the Deployment Files**:
    - Navigate to the `Deployment Files` folder
    - This folder contains YAML files for deploying all necessary Kubernetes resources, including services, deployments, StatefulSets, ConfigMaps, and Secrets.
-
-The application has the following services: 
 
 | Service | Description | Github Repo |
 | --- | --- | --- |
@@ -37,6 +33,16 @@ The application has the following services:
 | `mongodb` | MongoDB instance for persisted data | [mongodb](https://github.com/docker-library/mongo) |
 | `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer-Bestbuy](https://github.com/neetika15122/virtual-customer-Bestbuy.git) |
 | `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-Bestbuy](https://github.com/neetika15122/virtual-worker-Bestbuy.git) |
+
+## Step 1: Clone the BestBuyApplication Repository
+
+To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyApplications.git) repository, which contains all necessary deployment files.
+
+ **Review the Deployment Files**:
+   - Navigate to the `Deployment Files` folder
+   - This folder contains YAML files for deploying all necessary Kubernetes resources, including services, deployments, StatefulSets, ConfigMaps, and Secrets.
+
+
 
 
 ![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
