@@ -192,23 +192,6 @@ To enable AI-generated product descriptions and image generation features, you w
    | `virtual-customer` | Simulates customer order creation          | [virtual-customer-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-customer-bestbuy/latest/images/sha256:07f2efbe01975da29ba81fe985b4d8333f12f277af447634b935a283fe38855e?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
    | `virtual-worker`   | Simulates order completion                 | [virtual-worker-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-worker-bestbuy/latest/images/sha256:b64ac72d57efb194e497ec4bbce9e894030a3b21fc6bc0204a87707482036182?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)     |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Step 6: Deploy the ConfigMaps and Secrets
 - Deploy the ConfigMap for RabbitMQ Plugins:
    ```bash
@@ -324,9 +307,3 @@ Explanation: The db.orders.find() command fetches and displays all documents (re
 - Connect to the MongoDB shell in the Kubernetes pod.
 - Explore the databases and collections used by the application.
 - Query the orders collection to examine the data structure and stored records.
-
-## Lab Tasks: Build, Push, and Deploy Your Own Docker Images
-
-You are asked to fork the necessary service repositories, build Docker images for each service, push them to your own Docker Hub account, and update the Kubernetes configuration file to use your images.
-
----
