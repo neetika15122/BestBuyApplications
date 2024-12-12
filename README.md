@@ -105,6 +105,7 @@ The application has the following services:
 
 ![alt text](image-1.png)
 ![alt text](image-5.png)
+![alt text](image-15.png)
 
 ## Step 4: Set Up the AI Backing Services
 To enable AI-generated product descriptions and image generation features, you will deploy the required **Azure OpenAI Services** for GPT-4 (text generation) and DALL-E 3 (image generation). This step is essential to configure the **AI Service** component in the Algonquin Pet Store application.
