@@ -1,4 +1,4 @@
-# BestBuy Store
+# BestBuy Store (On Steroids)
 Welcome to the BestBuy Store application.
 
 This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
@@ -183,14 +183,14 @@ To enable AI-generated product descriptions and image generation features, you w
 ### **Task 1: Fork the Repositories**
  | Service            | Description                                | Github Repo                                                                 |
    |--------------------|--------------------------------------------|-----------------------------------------------------------------------------|
-   | `store-front`      | Web app for customers to place orders      | [store-front-Bestbuy](https://github.com/ramymohamed10/store-front-L8)           |
-   | `store-admin`      | Web app for store employees                | [store-admin-Bestbuy](https://github.com/ramymohamed10/store-admin-L8)           |
-   | `order-service`    | Handles order placement                    | [order-service-Bestbuy](https://github.com/ramymohamed10/order-service-L8)       |
-   | `product-service`  | Handles CRUD operations on products        | [product-service-Bestbuy](https://github.com/ramymohamed10/product-service-L8)   |
-   | `makeline-service` | Processes and completes orders             | [makeline-service-Bestbuy](https://github.com/ramymohamed10/makeline-service-L8) |
-   | `ai-service`       | AI-based product descriptions and images   | [ai-service-Bestbuy](https://github.com/ramymohamed10/ai-service-L8)             |
-   | `virtual-customer` | Simulates customer order creation          | [virtual-customer-Bestbuy](https://github.com/ramymohamed10/virtual-customer-L8) |
-   | `virtual-worker`   | Simulates order completion                 | [virtual-worker-Bestbuy](https://github.com/ramymohamed10/virtual-worker-L8)     |
+   | `store-front`      | Web app for customers to place orders      | [store-front-Bestbuy](https://hub.docker.com/layers/pras0044/store-front-bestbuy/latest/images/sha256:e48825c1a356110396304c3bdffd274efaab6064ca9621824ee5498146034548?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)           |
+   | `store-admin`      | Web app for store employees                | [store-admin-Bestbuy](https://hub.docker.com/layers/pras0044/store-admin-bestbuy/latest/images/sha256:8107a1539d0b5fce8efb15cc0234fa0f2651e510332f4edba237461a0fc7b163?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)           |
+   | `order-service`    | Handles order placement                    | [order-service-Bestbuy](https://hub.docker.com/layers/pras0044/order-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)       |
+   | `product-service`  | Handles CRUD operations on products        | [product-service-Bestbuy](https://hub.docker.com/layers/pras0044/product-service/latest/images/sha256:38ddcd3b7fe2a99ee292c11528edad058f5967edc41c8561ed9ac33b3a639819?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)   |
+   | `makeline-service` | Processes and completes orders             | [makeline-service-Bestbuy](https://hub.docker.com/layers/pras0044/makeline-service-bestbuy/latest/images/sha256:282eb172ab58e0da770deeaa10f2966fd23c5c038db25f2534d01b3fcb1109a6?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+   | `ai-service`       | AI-based product descriptions and images   | [ai-service-Bestbuy](https://hub.docker.com/layers/pras0044/ai-service-bestbuy/latest/images/sha256:d68f27550d370a62e45e35005ba6410656f7999c60e67000ae4b02fde13c9c10?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)             |
+   | `virtual-customer` | Simulates customer order creation          | [virtual-customer-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-customer-bestbuy/latest/images/sha256:07f2efbe01975da29ba81fe985b4d8333f12f277af447634b935a283fe38855e?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
+   | `virtual-worker`   | Simulates order completion                 | [virtual-worker-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-worker-bestbuy/latest/images/sha256:b64ac72d57efb194e497ec4bbce9e894030a3b21fc6bc0204a87707482036182?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E)     |
 
 
 
