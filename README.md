@@ -128,6 +128,8 @@ To enable AI-generated product descriptions and image generation features, you w
 4. **Deploy the Resource**:
    - Click **Review + Create** and then **Create** to deploy the Azure OpenAI service.
 
+![alt text](image-16.png)
+
 ### Task 2: Deploy the GPT-4 and DALL-E 3 Models
 
 1. **Access the Azure OpenAI Resource**:
