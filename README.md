@@ -250,26 +250,35 @@ docker push username/virtual-customer-bestbuy:latest
    ```bash
    kubectl apply -f config-maps.yaml
    ```
+![alt text](image-9.png)
+
 - Create and Deploy the Secret for OpenAI API:  
    - Make sure that you have replaced Base64-encoded-API-KEY in secrets.yaml with your Base64-encoded OpenAI API key.
    ```bash
    kubectl apply -f secrets.yaml
    ```
+![alt text](image-10.png)
 - Verify:
    ```bash
    kubectl get configmaps
    kubectl get secrets
 
+![alt text](image-11.png)
+
 ## Step 7: Deploy the Application
    ```bash
    kubectl apply -f aps-all-in-one.yaml
    ```
+![alt text](image-12.png)
 ### Validate the Deployment
 - Check Pods and Services:
    ```bash
    kubectl get pods
    kubectl get services
    ```
+![alt text](image-13.png)
+![alt text](image-14.png)
+
 - Test Frontend Access:
    - Locate the external IPs for store-front and store-admin services:
    ```bash
