@@ -243,6 +243,7 @@ docker push username/order-service-bestbuy:latest
 docker push username/store-admin-bestbuy:latest 
 docker push username/virtual-customer-bestbuy:latest 
 ```
+![alt text](image-8.png)
 
 ### Step 6: Deploy the ConfigMaps and Secrets
 - Deploy the ConfigMap for RabbitMQ Plugins:
