@@ -1,25 +1,56 @@
-# BestBuy Store (On Steroids)
+# BestBuy Store
 Welcome to the BestBuy Store application.
 
 This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
 
 ## Assignment Objectives
 1. Implement a cloud-native application using microservices architecture.
-2. Develop and deploy a full-stack solution for Best Buy using Kubernetes.
-3. Enable AI-powered product descriptions and image generation using GPT-4 and DALL-E. 
+2. Configure and manage essential Kubernetes resources like StatefulSets, Secrets, ConfigMaps, and Deployments.
+3. Test the application's features, including backend services, frontend interfaces, and AI integration.
+4. Scale services and monitor application health.
+5. Simulate customer and worker tasks using Virtual Customer and Virtual Worker services. 
 
-## Project Requirements
-### 1. **Application Architecture**
-Design of the application based on the provided diagram of BestBuy Store(On Steroids)
-![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
+## Understanding Key Kubernetes Resources: StatefulSets, Deployments, Secrets, and ConfigMaps
+In this section, you will learn about essential Kubernetes resources used to deploy and manage applications in a cluster.
 
-### 2. **Microservices Development**
-The application has the following services: 
+### **Deployments**
+A **Deployment** is a Kubernetes resource that ensures a specified number of pod replicas are running. It provides mechanisms for rolling updates, scaling, and version management.
+
+#### **Key Features of Deployments**:
+1. **Replica Management**:
+Ensures a defined number of pod replicas are running at all times.
+2. **Rolling Updates**:
+Updates pods incrementally to ensure minimal downtime.
+3. **Self-healing**:
+Automatically replaces failed pods.
+#### **Use Cases**:
+- Stateless applications like web servers or APIs.
+- Backend microservices.
+
+### **StatefulSets**
+A **StatefulSet** is a Kubernetes resource used to manage stateful applications. Unlike Deployments, StatefulSets are designed for applications that require unique network identifiers, stable storage, and consistent state across pod restarts.
+
+#### **Key Features of StatefulSets**:
+1. **Stable Pod Names**:
+   Pods in a StatefulSet have predictable names, such as `pod-name-0`, `pod-name-1`.
+2. **Persistent Storage**:
+   Each pod can be associated with its own Persistent Volume, ensuring data is retained across restarts.
+3. **Ordered Scaling and Updates**:
+   Pods are created, updated, and deleted in a controlled order.
+
+#### **Use Cases**:
+- Databases like MongoDB, MySQL, or PostgreSQL.
+- Message queues like RabbitMQ.
+
+## Step 1: Clone the BestBuyApplication Repository
+
 To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyApplications.git) repository, which contains all necessary deployment files.
 
  **Review the Deployment Files**:
    - Navigate to the `Deployment Files` folder
    - This folder contains YAML files for deploying all necessary Kubernetes resources, including services, deployments, StatefulSets, ConfigMaps, and Secrets.
+
+The application has the following services: 
 
 | Service | Description | Github Repo |
 | --- | --- | --- |
@@ -34,72 +65,8 @@ To begin, clone the [**BestBuyApp**](https://github.com/neetika15122/BestBuyAppl
 | `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer-Bestbuy](https://github.com/neetika15122/virtual-customer-Bestbuy.git) |
 | `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-Bestbuy](https://github.com/neetika15122/virtual-worker-Bestbuy.git) |
 
-### 3. **AI Integration**
 
-### Task 1: Create an Azure OpenAI Service Instance
-
-1. **Navigate to Azure Portal**:
-   - Go to the [Azure Portal](https://portal.azure.com/).
-
-2. **Create a Resource**:
-   - Select **Create a Resource** from the Azure portal dashboard.
-   - Search for **Azure OpenAI** in the marketplace.
-
-3. **Set Up the Azure OpenAI Resource**:
-   - Choose the **East US** region for deployment to ensure capacity for GPT-4 and DALL-E 3 models.
-   - Fill in the required details:
-     - Resource group: Use an existing one or create a new group.
-     - Pricing tier: Select `Standard`.
-
-4. **Deploy the Resource**:
-   - Click **Review + Create** and then **Create** to deploy the Azure OpenAI service.
-
-### Task 2: Retrieve and Configure API Keys
-
-1. **Get API Keys**:
-   - Go to the **Keys and Endpoints** section of your Azure OpenAI resource.
-   - Copy the **API Key (API key 1)** and **Endpoint URL**.
-
-2. **Base64 Encode the API Key**:
-   - Use the following command to Base64 encode your API key:
-     ```bash
-     echo -n "<your-api-key>" | base64
-     ```
-   - Replace `<your-api-key>` with your actual API key.
-
-### Task 3: Update AI Service Deployment Configuration in the `Deployment Files` folder.
-1. **Modify Secretes YAML**:
-   - Edit the `secrets.yaml` file.
-   - Replace `OPENAI_API_KEY` placeholder with the Base64-encoded value of the `API_KEY`. 
-2. **Modify Deployment YAML**:
-   - Edit the `aps-all-in-one.yaml` file.
-   - Replace the placeholders with the configurations you retrieved:
-     - `AZURE_OPENAI_DEPLOYMENT_NAME`: Enter the deployment name for GPT-4.
-     - `AZURE_OPENAI_ENDPOINT`: Enter the endpoint URL for the GPT-4 deployment.
-     - `AZURE_OPENAI_DALLE_ENDPOINT`: Enter the endpoint URL for the DALL-E 3 deployment.
-     - `AZURE_OPENAI_DALLE_DEPLOYMENT_NAME`: Enter the deployment name for DALL-E 3.
-
-   Example configuration in the YAML file:
-   ```yaml
-   - name: AZURE_OPENAI_API_VERSION
-     value: "2024-07-01-preview"
-   - name: AZURE_OPENAI_DEPLOYMENT_NAME
-     value: "gpt-4-deployment"
-   - name: AZURE_OPENAI_ENDPOINT
-     value: "https://<your-openai-resource-name>.openai.azure.com/"
-   - name: AZURE_OPENAI_DALLE_ENDPOINT
-     value: "https://<your-openai-resource-name>.openai.azure.com/"
-   - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
-     value: "dalle-3-deployment"
-
-
-
-
-
-
-
-
-
+![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
 
 ## Step 2: Install `kubectl`
 1. **What is `kubectl`?**
