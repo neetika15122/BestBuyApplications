@@ -207,3 +207,28 @@ To enable AI-generated product descriptions and image generation features, you w
      echo -n "<your-api-key>" | base64
      ```
    - Replace `<your-api-key>` with your actual API key.
+
+### Task 4: Update AI Service Deployment Configuration in the `Deployment Files` folder.
+1. **Modify Secretes YAML**:
+   - Edit the `secrets.yaml` file.
+   - Replace `OPENAI_API_KEY` placeholder with the Base64-encoded value of the `API_KEY`. 
+2. **Modify Deployment YAML**:
+   - Edit the `aps-all-in-one.yaml` file.
+   - Replace the placeholders with the configurations you retrieved:
+     - `AZURE_OPENAI_DEPLOYMENT_NAME`: Enter the deployment name for GPT-4.
+     - `AZURE_OPENAI_ENDPOINT`: Enter the endpoint URL for the GPT-4 deployment.
+     - `AZURE_OPENAI_DALLE_ENDPOINT`: Enter the endpoint URL for the DALL-E 3 deployment.
+     - `AZURE_OPENAI_DALLE_DEPLOYMENT_NAME`: Enter the deployment name for DALL-E 3.
+
+   Example configuration in the YAML file:
+   ```yaml
+   - name: AZURE_OPENAI_API_VERSION
+     value: "2024-07-01-preview"
+   - name: AZURE_OPENAI_DEPLOYMENT_NAME
+     value: "gpt-4-deployment"
+   - name: AZURE_OPENAI_ENDPOINT
+     value: "https://<your-openai-resource-name>.openai.azure.com/"
+   - name: AZURE_OPENAI_DALLE_ENDPOINT
+     value: "https://<your-openai-resource-name>.openai.azure.com/"
+   - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
+     value: "dalle-3-deployment"
