@@ -68,9 +68,62 @@ The application has the following services:
 
 ![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
 
-## Run the app on Azure Kubernetes Service (AKS)
+## Step 2: Install `kubectl`
+1. **What is `kubectl`?**
+   - `kubectl` is a command-line tool that allows you to communicate with and manage Kubernetes clusters. You will use `kubectl` to deploy applications, configure clusters, and inspect resources.
 
-You can use the kubernetes YAML files provided in the [Deployment Files](./Deployment%20Files/) folder to deploy the app to an AKS cluster.
+2. **Installing `kubectl`:**
+   - Follow the official installation guide to install `kubectl` on your system. The guide provides detailed instructions for various operating systems.
+   - [kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/)
 
+3. **Verify `kubectl` Installation:**
+   - After installing, confirm that `kubectl` is properly set up by running:
+     ```bash
+     kubectl version --client
+     ```
+   - You should see the client version information displayed, confirming a successful installation.
+
+## Step 3: Create an Azure Kubernetes Cluster (AKS)
+1. **Log in to Azure Portal:**
+   - Go to [https://portal.azure.com](https://portal.azure.com) and log in with your Azure account.
+
+2. **Create a Resource Group:**
+   - In the Azure Portal, search for **Resource Groups** in the search bar.
+   - Click **Create** and fill in the following:
+     - **Resource group name**: `BestBuyResource`
+     - **Region**: `Central Canada`.
+   - Click **Review + Create** and then **Create**.
+
+3. **Create an AKS Cluster:**
+   - In the search bar, type **Kubernetes services** and click on it.
+   - Click **Create** and select **Kubernetes cluster**
+   - In the `Basics` tap fill in the following details:
+     - **Subscription**: Select your subscription.
+     - **Resource group**: Choose `BestBuyResource`.
+     - **Cluster preset configuration**: Choose `Dev/Test`.
+     - **Kubernetes cluster name**: `BestBuyCluster`.
+     - **Region**: Same as your resource group (e.g., `Central Canada`).
+     - **Availability zones**: `None`.
+     - **AKS pricing tier**: `Free`.
+     - **Kubernetes version**: `Default`.
+     - **Automatic upgrade**: `Disabled`.
+     - **Automatic upgrade scheduler**: `No schedule`.
+     - **Node security channel type**: `None`.
+     - **Security channel scheduler**: `No schedule`.
+     - **Authentication and Authorization**: `Local accounts with Kubernetes RBAC`.
+   - In the `Node pools` tap fill in the following details:
+     - Select **agentpool**. Optionally change its name to `systemnodes`. This nodes will have the controlplane.
+        - Set **node size** to `D2as_v4`.
+        - **Scale method**: `Manual`
+        - **Node count**: `1`
+        - Click `update`
+     - Click on **Add node pool**:
+        - **Node pool name**: `workernodes`.
+        - **Mode**: `User` 
+        - Set **node size** to `D2as_v4`.
+        - **Scale method**: `Manual`
+        - **Node count**: `2`
+        - Click `add`
+   - Click **Review + Create**, and then **Create**. The deployment will take a few minutes.
 
 
