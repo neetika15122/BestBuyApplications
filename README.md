@@ -140,11 +140,14 @@ To enable AI-generated product descriptions and image generation features, you w
    - Repeat the same process to deploy **DALL-E 3**.
    - Use a descriptive deployment name (e.g., `dalle-3-deployment`).
 
+![alt text](image-2.png)
+
 4. **Note Configuration Details**:
    - Once deployed, note down the following details for each model:
      - Deployment Name
      - Endpoint URL
-
+![alt text](image-3.png)
+![alt text](image-4.png)
 ### Task 3: Retrieve and Configure API Keys
 
 1. **Get API Keys**:
