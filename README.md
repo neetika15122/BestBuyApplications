@@ -190,8 +190,8 @@ To enable AI-generated product descriptions and image generation features, you w
      value: "dalle-3-deployment"
 
 ## Step 5: Build, Tag and Push the Docker Images
-### **Task 1: Fork the Repositories **
-| Service            | Docker Link                                                                                   |
+### Docker Images for each service
+| Services           | Docker Link                                                                                   |
 |--------------------|-----------------------------------------------------------------------------------------------|
 | `store-front`      | [store-front-Bestbuy](https://hub.docker.com/layers/pras0044/store-front-bestbuy/latest/images/sha256:e48825c1a356110396304c3bdffd274efaab6064ca9621824ee5498146034548?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
 | `store-admin`      | [store-admin-Bestbuy](https://hub.docker.com/layers/pras0044/store-admin-bestbuy/latest/images/sha256:8107a1539d0b5fce8efb15cc0234fa0f2651e510332f4edba237461a0fc7b163?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
@@ -203,7 +203,7 @@ To enable AI-generated product descriptions and image generation features, you w
 | `virtual-worker`   | [virtual-worker-Bestbuy](https://hub.docker.com/layers/pras0044/virtual-worker-bestbuy/latest/images/sha256:b64ac72d57efb194e497ec4bbce9e894030a3b21fc6bc0204a87707482036182?uuid=7D714444-CF9A-431F-A33A-CDA3C153BF5E) |
 
 
-### **Task 2: Build the Docker Images for each repository **
+### **Task 1: Build the Docker Images for each repository **
 
 ```bash 
 docker build -t ai-service-bestbuy:latest .  
@@ -216,7 +216,7 @@ docker build -t store-admin-bestbuy:latest .
 docker build -t virtual-customer-bestbuy:latest . 
 ```
 
-### **Task 3: Tag the Docker Images for each repository **
+### **Task 2: Tag the Docker Images for each repository **
 
 ```bash
 docker tag ai-service-bestbuy:latest username/ai-service-bestbuy:latest 
@@ -229,7 +229,7 @@ docker tag store-admin-bestbuy:latest username/store-admin-bestbuy:latest
 docker tag virtual-customer-bestbuy:latest username/virtual-customer-bestbuy:latest 
 ```
 
-### **Task 4: Push the Docker Images for each repository **
+### **Task 3: Push the Docker Images for each repository **
 
 ```bash
 docker push username/ai-service-bestbuy:latest 
