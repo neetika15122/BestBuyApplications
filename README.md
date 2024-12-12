@@ -232,3 +232,66 @@ To enable AI-generated product descriptions and image generation features, you w
      value: "https://<your-openai-resource-name>.openai.azure.com/"
    - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
      value: "dalle-3-deployment"
+
+## Step 6: Deploy the ConfigMaps and Secrets
+- Deploy the ConfigMap for RabbitMQ Plugins:
+   ```bash
+   kubectl apply -f config-maps.yaml
+   ```
+- Create and Deploy the Secret for OpenAI API:  
+   - Make sure that you have replaced Base64-encoded-API-KEY in secrets.yaml with your Base64-encoded OpenAI API key.
+   ```bash
+   kubectl apply -f secrets.yaml
+   ```
+- Verify:
+   ```bash
+   kubectl get configmaps
+   kubectl get secrets
+
+## Step 7: Deploy the Application
+   ```bash
+   kubectl apply -f aps-all-in-one.yaml
+   ```
+### Validate the Deployment
+- Check Pods and Services:
+   ```bash
+   kubectl get pods
+   kubectl get services
+   ```
+- Test Frontend Access:
+   - Locate the external IPs for store-front and store-admin services:
+   ```bash
+   kubectl get services
+   ```
+   - Access the Store Front app at the external IP on port 80.
+   - Access the Store Admin app at the external IP on port 80.
+## Step 8: Deploy Virtual Customer and Worker
+   ```bash
+   kubectl apply -f admin-tasks.yaml
+   ```
+- Monitor Virtual Customer:
+   ```bash
+   kubectl logs -f deployment/virtual-customer
+   ```
+- Monitor Virtual Worker:
+   ```bash
+   kubectl logs -f deployment/virtual-worker
+   ```
+
+## Step 9: Scale and Monitor Services
+### Scale Deployments:
+- Scale the `order-service` to 3 replicas:
+```bash
+kubectl scale deployment order-service --replicas=3
+```
+- Check Scaling:
+```bash
+kubectl get pods
+```
+- Monitor Resource Usage:
+
+   - Enable metrics server for resource monitoring.
+   - Use kubectl top to monitor pod and node usage:
+   ```bash
+   kubectl top pods
+   kubectl top nodes
