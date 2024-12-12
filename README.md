@@ -295,3 +295,62 @@ kubectl get pods
    ```bash
    kubectl top pods
    kubectl top nodes
+
+## Step 10: Explore Advanced Features
+### AI-Generated Descriptions and Images:
+- Use the AI Service for generating product descriptions and images.
+- Ensure your OpenAI API key is correctly configured in the deployed secret.
+### RabbitMQ Management:
+- Access the RabbitMQ management UI:
+   ```bash
+   kubectl port-forward service/rabbitmq 15672:15672
+   ```
+   The kubectl port-forward command is used to forward a local port to a port on a Kubernetes resource (e.g., a Pod or Service). This allows you to access the application running in the cluster from your local machine without exposing it externally.
+
+
+- Login with the default credentials (`username`/`password`).
+
+### MongoDB Shell Access and Database Exploration
+In this section, you will use the MongoDB shell to interact with the `orderdb` database, which stores order information for the Algonquin Pet Store application. Follow the steps below to connect to the MongoDB pod and explore its contents.
+
+#### **1- Access the MongoDB Shell**
+Run the following command to connect to the MongoDB shell inside the running MongoDB pod:
+```bash
+kubectl exec -it <mongodb-pod-name> -- mongo
+```
+Explanation: This command uses kubectl exec to open an interactive shell (-it) inside the MongoDB pod and starts the MongoDB shell program (mongo).
+
+#### **2- List All Databases**
+Once inside the MongoDB shell, run:
+```bash
+show dbs
+```
+Explanation: The show dbs command lists all databases available on the MongoDB server. You should see a list that includes the orderdb, which stores order-related data for the application.
+#### **3- Switch to the Order Database**
+```bash
+use orderdb
+```
+Explanation: The use orderdb command selects the orderdb database, making it the active database for subsequent queries and commands.
+#### **4- List Collections in the Database**
+Display all collections in the orderdb database:
+```bash
+show collections
+```
+Explanation: The show collections command lists all collections (similar to tables in relational databases) in the current database. The orders collection contains the order data.
+#### **5- Query the Orders Collection**
+Retrieve all documents in the orders collection:
+```bash
+db.orders.find()
+```
+Explanation: The db.orders.find() command fetches and displays all documents (records) in the orders collection. This allows you to view the stored order data, including details such as customer information, products, and order status.
+
+#### By following these steps, you will:
+- Connect to the MongoDB shell in the Kubernetes pod.
+- Explore the databases and collections used by the application.
+- Query the orders collection to examine the data structure and stored records.
+
+## Lab Tasks: Build, Push, and Deploy Your Own Docker Images
+
+You are asked to fork the necessary service repositories, build Docker images for each service, push them to your own Docker Hub account, and update the Kubernetes configuration file to use your images.
+
+---
