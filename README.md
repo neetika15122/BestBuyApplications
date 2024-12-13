@@ -298,12 +298,12 @@ docker push username/virtual-customer-bestbuy:latest
    ```bash
    kubectl logs -f deployment/virtual-customer
    ```
-![alt text](assets/image.png)
+![alt text](assets/image-4.png)
 - Monitor Virtual Worker:
    ```bash
    kubectl logs -f deployment/virtual-worker
    ```
-![alt text](assets/image-1.png)
+
 ## Step 9: Scale and Monitor Services
 ### Scale Deployments:
 - Scale the `order-service` to 3 replicas:
