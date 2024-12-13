@@ -76,7 +76,7 @@ The application has the following services:
         - Click `add`
    - Click **Review + Create**, and then **Create**. The deployment will take a few minutes.
 
-![alt text](image.png)
+![alt text](assets/image.png)
 
 ## Step 3: Connect to AKS Cluster
    - Once the AKS cluster is deployed, navigate to the cluster in the Azure Portal.
