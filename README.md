@@ -298,11 +298,12 @@ docker push username/virtual-customer-bestbuy:latest
    ```bash
    kubectl logs -f deployment/virtual-customer
    ```
+![alt text](assets/image.png)
 - Monitor Virtual Worker:
    ```bash
    kubectl logs -f deployment/virtual-worker
    ```
-
+![alt text](assets/image-1.png)
 ## Step 9: Scale and Monitor Services
 ### Scale Deployments:
 - Scale the `order-service` to 3 replicas:
@@ -330,6 +331,7 @@ kubectl get pods
    ```bash
    kubectl port-forward service/rabbitmq 15672:15672
    ```
+   ![alt text](assets/image-3.png)
    The kubectl port-forward command is used to forward a local port to a port on a Kubernetes resource (e.g., a Pod or Service). This allows you to access the application running in the cluster from your local machine without exposing it externally.
 
 
@@ -343,6 +345,7 @@ Run the following command to connect to the MongoDB shell inside the running Mon
 ```bash
 kubectl exec -it <mongodb-pod-name> -- mongo
 ```
+![alt text](assets/image-2.png)
 Explanation: This command uses kubectl exec to open an interactive shell (-it) inside the MongoDB pod and starts the MongoDB shell program (mongo).
 
 #### **2- List All Databases**
