@@ -31,7 +31,7 @@ The application has the following services:
 | `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-Bestbuy](https://github.com/neetika15122/virtual-worker-Bestbuy.git) |
 
 
-![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
+![Logical Application Architecture Diagram](assets/BestBuyArchitecture.png)
 
 ## Step 2: Create an Azure Kubernetes Cluster (AKS)
 1. **Log in to Azure Portal:**
