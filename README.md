@@ -376,3 +376,20 @@ Explanation: The db.orders.find() command fetches and displays all documents (re
 
 ## Step 10: Test the Application
 
+Store Front Before Placing order- 
+![alt text](image-19.png)
+
+Store Front After Placing Order (In Cart)-
+![alt text](image-20.png)
+![alt text](image-21.png)
+
+Store Admin (Receving the order);
+![alt text](image-22.png)
+![alt text](image-23.png)
+![alt text](image-24.png)
+
+Store Admin > Products:
+![alt text](image-25.png)
+
+Adding Products in Store Admin:
+![alt text](image-26.png)
