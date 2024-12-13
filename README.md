@@ -103,9 +103,9 @@ The application has the following services:
         ```
         You should see details of the nodes in your AKS cluster if the connection is successful.
 
-![alt text](image-1.png)
-![alt text](image-5.png)
-![alt text](image-15.png)
+![alt text](assets/image-1.png)
+![alt text](assets/image-5.png)
+![alt text](assets/image-15.png)
 
 ## Step 4: Set Up the AI Backing Services
 To enable AI-generated product descriptions and image generation features, you will deploy the required **Azure OpenAI Services** for GPT-4 (text generation) and DALL-E 3 (image generation). This step is essential to configure the **AI Service** component in the Algonquin Pet Store application.
@@ -128,7 +128,7 @@ To enable AI-generated product descriptions and image generation features, you w
 4. **Deploy the Resource**:
    - Click **Review + Create** and then **Create** to deploy the Azure OpenAI service.
 
-![alt text](image-16.png)
+![alt text](assets/image-16.png)
 
 ### Task 2: Deploy the GPT-4 and DALL-E 3 Models
 
@@ -144,15 +144,15 @@ To enable AI-generated product descriptions and image generation features, you w
    - Repeat the same process to deploy **DALL-E 3**.
    - Use a descriptive deployment name (e.g., `dalle-3-deployment`).
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 4. **Note Configuration Details**:
    - Once deployed, note down the following details for each model:
      - Deployment Name
-![alt text](image-3.png)
-![alt text](image-4.png)
+![alt text](assets/image-3.png)
+![alt text](assets/image-4.png)
     - Endpoint URL
-![alt text](image-18.png)
+![alt text](assets/image-18.png)
 ### Task 3: Retrieve and Configure API Keys
 
 1. **Get API Keys**:
@@ -166,7 +166,7 @@ To enable AI-generated product descriptions and image generation features, you w
      ```
    - Replace `<your-api-key>` with your actual API key.
 
-![alt text](image-6.png)
+![alt text](assets/image-6.png)
 
 ### Task 4: Update AI Service Deployment Configuration in the `Deployment Files` folder.
 1. **Modify Secretes YAML**:
@@ -193,7 +193,7 @@ To enable AI-generated product descriptions and image generation features, you w
    - name: AZURE_OPENAI_DALLE_DEPLOYMENT_NAME
      value: "dalle-3-deployment"
 
-![alt text](image-7.png)
+![alt text](assets/image-7.png)
 
 ## Step 5: Build, Tag and Push the Docker Images
 ### Docker Images for each service
@@ -247,41 +247,41 @@ docker push username/order-service-bestbuy:latest
 docker push username/store-admin-bestbuy:latest 
 docker push username/virtual-customer-bestbuy:latest 
 ```
-![alt text](image-8.png)
+![alt text](assets/image-8.png)
 
 ### Step 6: Deploy the ConfigMaps and Secrets
 - Deploy the ConfigMap for RabbitMQ Plugins:
    ```bash
    kubectl apply -f config-maps.yaml
    ```
-![alt text](image-9.png)
+![alt text](assets/image-9.png)
 
 - Create and Deploy the Secret for OpenAI API:  
    - Make sure that you have replaced Base64-encoded-API-KEY in secrets.yaml with your Base64-encoded OpenAI API key.
    ```bash
    kubectl apply -f secrets.yaml
    ```
-![alt text](image-10.png)
+![alt text](assets/image-10.png)
 - Verify:
    ```bash
    kubectl get configmaps
    kubectl get secrets
 
-![alt text](image-11.png)
+![alt text](assets/image-11.png)
 
 ## Step 7: Deploy the Application
    ```bash
    kubectl apply -f aps-all-in-one.yaml
    ```
-![alt text](image-12.png)
+![alt text](assets/image-12.png)
 ### Validate the Deployment
 - Check Pods and Services:
    ```bash
    kubectl get pods
    kubectl get services
    ```
-![alt text](image-13.png)
-![alt text](image-14.png)
+![alt text](assets/image-13.png)
+![alt text](assets/image-14.png)
 
 - Test Frontend Access:
    - Locate the external IPs for store-front and store-admin services:
@@ -377,19 +377,19 @@ Explanation: The db.orders.find() command fetches and displays all documents (re
 ## Step 10: Test the Application
 
 Store Front Before Placing order- 
-![alt text](image-19.png)
+![alt text](assets/image-19.png)
 
 Store Front After Placing Order (In Cart)-
-![alt text](image-20.png)
-![alt text](image-21.png)
+![alt text](assets/image-20.png)
+![alt text](assets/image-21.png)
 
 Store Admin (Receving the order);
-![alt text](image-22.png)
-![alt text](image-23.png)
-![alt text](image-24.png)
+![alt text](assets/image-22.png)
+![alt text](assets/image-23.png)
+![alt text](assets/image-24.png)
 
 Store Admin > Products:
-![alt text](image-25.png)
+![alt text](assets/image-25.png)
 
 Adding Products in Store Admin:
-![alt text](image-26.png)
+![alt text](assets/image-26.png)
