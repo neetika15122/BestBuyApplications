@@ -393,3 +393,7 @@ Store Admin > Products:
 
 Adding Products in Store Admin:
 ![alt text](assets/image-26.png)
+
+
+
+Youtube Video Link- https://youtu.be/aKIkX2_NcUE
