@@ -120,7 +120,7 @@ To enable AI-generated product descriptions and image generation features, you w
    - Search for **Azure OpenAI** in the marketplace.
 
 3. **Set Up the Azure OpenAI Resource**:
-   - Choose the **East US** region for deployment to ensure capacity for GPT-4 and DALL-E 3 models.
+   - Choose the **australiaeast** region for deployment to ensure capacity for GPT-4 and DALL-E 3 models.
    - Fill in the required details:
      - Resource group: Use an existing one or create a new group.
      - Pricing tier: Select `Standard`.
